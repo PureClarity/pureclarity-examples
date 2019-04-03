@@ -1,0 +1,20 @@
+{
+    "Version": 2,
+    "Brands": [
+        {
+            "Id": "1",
+            "DisplayName": "Aspire",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/brands/aspire.png",
+            "Link": "/search-results?keyword=*#Brand=1",
+            "Description": "This is an example description for the Aspire brand"
+        },
+        {
+            "Id": "2",
+            "DisplayName": "Kilner",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/brands/Kilner.png",
+            "Link": "/search-results?keyword=*#Brand=8",
+            "Description": "This is an example description for the Kilner brand"
+        }
+    ]
+
+}
