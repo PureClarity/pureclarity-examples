@@ -45,3 +45,6 @@ _pc('getzone', {zone: "HP-01", category_id:"Accessories>Bags>Handbags"}, functio
 _pc('getzone', {zone: "HP-01", brand_id:"1"}, function (err, result) {
 
 })
+
+// If you are still unsure of the way this function is implemented you can find a working example on our CodePen found here:
+// https://codepen.io/anon/pen/PgZdmE?editors=1000
