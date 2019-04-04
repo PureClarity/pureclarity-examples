@@ -1,3 +1,0 @@
-OrderID,AccountId,UserId,Email,DateTime,ProdCode,Quantity,UnitPrice,LinePrice
-1,acc1,1,acc1@email.com,2016-12-25T09:00:00Z,P31038,10,3.49,34.9
-2,acc2,2,acc2@email.com,2016-12-25T09:00:00Z,P31175,1,2.49,2.49

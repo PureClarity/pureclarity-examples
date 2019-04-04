@@ -19,7 +19,8 @@
             "NoDefaultPriceForAccounts": false,
             "OnOffer": true,
             "newArrival": true,
-            "StartDate": "2016-12-25T09:00:00Z"
+            "StartDate": "2016-12-25T09:00:00Z",
+            "EndDate": "2021-12-25T09:00:00Z"
         },  
         {
             "Sku": "P31175",
@@ -39,8 +40,7 @@
             "NoDefaultPriceForAccounts": true,
             "OnOffer": false,
             "NewArrival": false,
-            "AccountExclusions": ["acc1"],
-            "EndDate": "2021-12-25T09:00:00Z"
+            "AccountExclusions": ["acc1"]
         },
         {
             "Sku": "P18316",
@@ -55,7 +55,8 @@
             "Link": "/product/P18316",
             "SearchTags": ["Aspire", "King"],
             "AssociatedSkus": ["P31038", "P31175"],
-            "AccountInclusions": ["acc2"]
+            "AccountInclusions": ["acc2"],
+            "Prices": ["2.49 GBP", "2.99 USD"]
         }
     ]
 }

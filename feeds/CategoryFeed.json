@@ -2,6 +2,20 @@
     "Version": 2,
     "Categories": [
         {
+            "Id": "1111",
+            "DisplayName": "Home",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/for shop by shape/sub cats/preston sofabed1.jpg",
+            "Link": "/productlist/290",
+            "Description": "This is an example description for a product category"
+        },
+        {
+            "Id": "1112",
+            "DisplayName": "Sale",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/for shop by shape/sub cats/preston sofabed1.jpg",
+            "Link": "/productlist/100",
+            "Description": "This is an example description for a product category"
+        },
+        {
             "Id": "4822",
             "DisplayName": "Beds and Bedspreads",
             "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/for shop by shape/sub cats/preston sofabed1.jpg",
@@ -14,7 +28,7 @@
             "DisplayName": "Jars",
             "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/cargoproductimages/65001-70000/67404.jpg",
             "Link": "/productlist/294",
-            "ParentIds": ["1111"],
+            "ParentIds": ["1111", "1112"],
             "Description": "This is an example description for a product category"
         }
     ]

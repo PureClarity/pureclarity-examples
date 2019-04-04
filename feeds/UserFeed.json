@@ -1,7 +1,7 @@
 {
     "Users": [
         {
-            "UserId": "acc1", 
+            "UserId": "USR1", 
             "Email": "user1@email.com",
             "FirstName": "John",
             "LastName": "Doe",
@@ -10,10 +10,13 @@
             "Gender": "M",
             "City": "York",
             "State": "Yorkshire",
-            "Country": "UK"
+            "Country": "UK",
+            "CustomAttribute_1": true,
+            "CustomAttribute_2": "string",
+            "CustomAttribute_3": 1
         },
         {
-            "UserId": "acc2", 
+            "UserId": "USR2", 
             "Email": "user2@email.com",
             "FirstName": "Adam",
             "LastName": "Smith",
@@ -25,7 +28,7 @@
             "Country": "UK"
         },
         {
-            "UserId": "acc3", 
+            "UserId": "USR3", 
             "Email": "user3@email.com",
             "FirstName": "Eve",
             "LastName": "Snow",
