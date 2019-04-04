@@ -65,6 +65,16 @@ _pc("set_basket", [
 
 /** CUSTOMER DETAILS **/
 
+// Example of a registered user logging into the site that provides no identifying information
+_pc("customer_details", {
+    userid:"USR123"
+})
+
+// Example of a registered account logging into the site that provides no identifying information
+_pc("customer_details", {
+    accid:"ACCID"
+})
+
 // Example of a registered user logging into the site that has a userid as the identifier
 _pc("customer_details", {
     userid: "USR123",
