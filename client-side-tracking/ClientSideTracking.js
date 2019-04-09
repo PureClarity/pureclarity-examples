@@ -101,6 +101,14 @@ _pc("customer_details", {
     title: "Mr"
 })
 
+// Example of a registered user logging into the site with a group ID as the identifier
+_pc("customer_details", {
+    groupid: "group10",
+    firstname: "John",
+    lastname: "Doe",
+    title: "Mr"
+}) 
+
 /** CUSTOMER LOGOUT **/
 
 // Example of the current user logging out of the site
@@ -155,3 +163,24 @@ _pc("order", {
     ]
 })
 
+// Example of an order with a group ID
+_pc("order", {
+    orderid: "0123",
+    ordertotal: "35",
+    title: "Mr",
+    firstname: "John",
+    lastname: "Doe",
+    zipcode: "90210",
+    postcode: "YO10 6RB",
+    dob: "1996-01-17",
+    userId: "USR123",
+    email: "example@example.com",
+    groupid: "group10",
+    items: [
+        {
+            id: "P1234",
+            qty: 3,
+            unitprice: 10   
+        }
+    ]
+})
