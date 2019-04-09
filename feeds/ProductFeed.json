@@ -56,7 +56,16 @@
             "SearchTags": ["Aspire", "King"],
             "AssociatedSkus": ["P31038", "P31175"],
             "AccountInclusions": ["acc2"],
-            "Prices": ["2.49 GBP", "2.99 USD"]
+            "Prices": ["2.49 GBP", "2.99 USD"],
+            "GroupPrices": {
+                "group1" : {
+                    "Prices" : ["10.99 GBP","12.99 USD"],
+                    "SalePrices" : ["9.99 GBP","11.99 USD"]
+                },
+                "group2" : {
+                    "SalePrices" : ["8.99 GBP","10.99 USD"]
+                }
+            }  
         }
     ]
 }
