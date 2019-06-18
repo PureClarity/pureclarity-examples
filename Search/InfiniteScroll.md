@@ -1,8 +1,8 @@
-#Infinite Scroll
+# Infinite Scroll
 
 We provide limited support for infinite scroll within legacy PureClarity search.
 
-##Changes to the client
+## Changes to the client
 
 The infinite scroll works by calling an exposed function from the PureClarity clientscript. This function automatically increments the page number and appends the products for that page to the end of the current results. 
 
@@ -52,7 +52,7 @@ $(window).on('scroll', function(){
 });
 ```
 
-##Template Recommendations
+## Template Recommendations
 
 Your template may require some minor changes for infinite scroll. Though it will work with default templates we recommend the following: 
 
