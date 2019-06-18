@@ -14,7 +14,7 @@ window['PureClarityObject'].getNextPageResults(<selector>);
 
 Note that the `<selector>` should be replaced with the element selector which would grab the individual product elements. This selector should be as specific as possible to ensure the right elements are targeted.
 
-When to call this function will vary depending on your precise requirements. An example of how this might be done is provided below, though this is only example code and should be adjusted accordingly for your needs. The provided example includes a debounce function to limit calls as well as only making additional calls if we go scroll further than we have before on the page (within the current page visit). Note that naive implementations may result in excessive calls which may exceed our fair use policy and result in the calls been blocked.
+When to call this function will vary depending on your precise requirements. An example of how this might be done is provided below, though this is only example code and should be adjusted accordingly for your needs. The provided example includes a debounce function to limit calls as well as only making additional calls if we scroll further down than we have before on the page (within the current page visit). Note that naive implementations may result in excessive calls which may exceed our fair use policy and result in the calls been blocked.
 
 ```javascript
 //Stores the current timer we're waiting on
