@@ -1,0 +1,43 @@
+{
+    "Users": [
+        {
+            "UserId": "USR1", 
+            "Email": "user1@email.com",
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Title": "Mr",
+            "DOB": "17/01/1996",
+            "Gender": "M",
+            "City": "York",
+            "State": "Yorkshire",
+            "Country": "UK",
+            "CustomAttribute_1": true,
+            "CustomAttribute_2": "string",
+            "CustomAttribute_3": 1
+        },
+        {
+            "UserId": "USR2", 
+            "Email": "user2@email.com",
+            "FirstName": "Adam",
+            "LastName": "Smith",
+            "Title": "Mr",
+            "DOB": "24/07/1987",
+            "Gender": "M",
+            "City": "Sheffield",
+            "State": "Yorkshire",
+            "Country": "UK"
+        },
+        {
+            "UserId": "USR3", 
+            "Email": "user3@email.com",
+            "FirstName": "Eve",
+            "LastName": "Snow",
+            "Title": "Miss",
+            "DOB": "11/09/1995",
+            "Gender": "F",
+            "City": "Manchester",
+            "State": "Greater Manchester",
+            "Country": "UK"
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "Products": [
+        {
+            "Id": "1",
+            "Sku": "P31038",
+            "Title": "Aspire Set Dble Pintuck Dk Egg",
+            "Description": "180T 100% Cotton Pintuck design luxury bed set fits double bed",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/31037-40.jpg",
+            "ImageOverlay": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/sale.jpg",
+            "Brand": "1",
+            "Categories": [
+                "4822"
+            ],
+            "Link": "/product/P31038",
+            "SearchTags": ["Aspire", "Pintuck"],
+            "AssociatedSkus": ["P31175", "P18316"],
+            "Prices": ["3.49 GBP", "4.99 USD"],
+            "SalePrices": ["2.49 GBP", "3.99 USD"],
+            "NoDefaultPriceForAccounts": false,
+            "OnOffer": true,
+            "newArrival": true,
+            "StartDate": "2016-12-25T09:00:00Z",
+            "EndDate": "2021-12-25T09:00:00Z"
+        },  
+        {
+            "Sku": "P31175",
+            "Title": "Quilted Bedspread King",
+            "Description": "Quilted bedspread in fresh white colour with modern geometric quilted pattern",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/new aw15 17.08.15/31175 quilted bedspread.jpg",
+            "ImageOverlay": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/sale.jpg",
+            "Brand": "1",
+            "Categories": [
+                "4822"
+            ],
+            "Link": "/product/P31175",
+            "SearchTags": ["Quilted", "King"],
+            "AssociatedSkus": ["P31038", "P18316"],
+            "Prices": ["2.49 GBP", "2.99 USD"],
+            "SalePrices": ["1.49 GBP", "1.99 USD"],
+            "NoDefaultPriceForAccounts": true,
+            "OnOffer": false,
+            "NewArrival": false,
+            "AccountExclusions": ["acc1"]
+        },
+        {
+            "Sku": "P18316",
+            "Title": "Aspire Bed Set Cream - King",
+            "Description": "King-sized 100% Cotton Duvet Set including two housewife pillowcases all made with 180 Thread Percale",
+            "Image": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/cargo/filedepository/product images 2015/18315 cream bed set.jpg",
+            "ImageOverlay": "https://s3-eu-west-1.amazonaws.com/pureclarity-media/abc123/sale.jpg",
+            "Brand": "1",
+            "Categories": [
+                "4822"
+            ],
+            "Link": "/product/P18316",
+            "SearchTags": ["Aspire", "King"],
+            "AssociatedSkus": ["P31038", "P31175"],
+            "AccountInclusions": ["acc2"],
+            "Prices": ["2.49 GBP", "2.99 USD"],
+            "GroupPrices": {
+                "group1" : {
+                    "Prices" : ["10.99 GBP","12.99 USD"],
+                    "SalePrices" : ["9.99 GBP","11.99 USD"]
+                },
+                "group2" : {
+                    "SalePrices" : ["8.99 GBP","10.99 USD"]
+                }
+            }  
+        }
+    ]
+}
