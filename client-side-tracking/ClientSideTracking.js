@@ -123,8 +123,7 @@ _pc("order", {
     title: "Mr",
     firstname: "John",
     lastname: "Doe",
-    zipcode: "90210",
-    postcode: "YO10 6RB",
+    zipcode: "90210", //Note this can also be named postcode
     dob: "1996-01-17",
     userId: "USR123",
     email: "example@example.com",
@@ -144,8 +143,7 @@ _pc("order", {
     title: "Mr",
     firstname: "John",
     lastname: "Doe",
-    zipcode: "90210",
-    postcode: "YO10 6RB",
+    postcode: "YO10 6RB", //Note this can also be named zipcode
     dob: "1996-01-17",
     userId: "USR123",
     email: "example@example.com",
@@ -170,8 +168,7 @@ _pc("order", {
     title: "Mr",
     firstname: "John",
     lastname: "Doe",
-    zipcode: "90210",
-    postcode: "YO10 6RB",
+    postcode: "YO10 6RB", //Note this can also be named zipcode
     dob: "1996-01-17",
     userId: "USR123",
     email: "example@example.com",
