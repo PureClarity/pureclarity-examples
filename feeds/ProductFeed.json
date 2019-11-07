@@ -63,6 +63,7 @@
                     "SalePrices" : ["9.99 GBP","11.99 USD"]
                 },
                 "group2" : {
+                    "Prices" : ["9.99 GBP","11.99 USD"],
                     "SalePrices" : ["8.99 GBP","10.99 USD"]
                 }
             }  
