@@ -40,7 +40,7 @@ _pc("product_rate", {
 
 /** SET BASKET **/
 
-// Example of a single product being added to the sites basket
+// Example of a single product in the sites basket
 _pc("set_basket", [
     {
         id: "P1234",
@@ -49,7 +49,7 @@ _pc("set_basket", [
     }
 ])
 
-// Example of multiple products being added to the sites basket 
+// Example of multiple products in the sites basket 
 _pc("set_basket", [
     {
         id: "P1234",
