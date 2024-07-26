@@ -1,0 +1,75 @@
+//Load the Swiper library. NOTE: You can use our helper libraries to load JS and CSS
+if (window.PureClarityObject){
+    window.PureClarityObject.util.jsLoader([{url:"https://unpkg.com/swiper@9/swiper-bundle.min.js", name: "swiper", ie8compatible: false}]);
+    window.PureClarityObject.util.cssLoader(["https://unpkg.com/swiper@9/swiper-bundle.min.css"]);
+}else{
+    //required to load in the preview window when creating campaigns
+    var script = document.createElement('script');
+    script.src = "https://unpkg.com/swiper@9/swiper-bundle.min.js";
+    document.head.appendChild(script);
+    var link = document.createElement( "link" );
+    link.href = "https://unpkg.com/swiper@9/swiper-bundle.min.css";
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+}
+
+(function(id){
+    /**
+    * Swiper needs to have slidesPerView set to < number of slides.
+    */
+    const getSlidesPerView = ( wantedNumber ) => {
+        const carouselChildren = {{data.items.length}};
+        return ( wantedNumber >= carouselChildren ? carouselChildren : wantedNumber );
+    };
+
+    var LoadSwiper = function(swiperFn) {
+
+        let settings = {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: {{schema_settings.carousel_settings.loop}},
+            slidesPerView: getSlidesPerView( 1 ),
+            spaceBetween: 10,
+            {{#if schema_settings.carousel_settings.autoplay}}
+            autoplay: {
+                delay: {{schema_settings.carousel_settings.autoplay_delay}}*1000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            {{/if}}
+            breakpoints: {
+                440: {
+                    slidesPerView: getSlidesPerView( 2 ),
+                },
+                768: {
+                    slidesPerView: getSlidesPerView( 3 ),
+                },
+                992: {
+                    slidesPerView: getSlidesPerView( 4 ),
+                }
+            }
+        };
+
+        if ({{schema_settings.carousel_settings.show_navigation}}){
+            settings.navigation = {
+                nextEl: '#pc-button-next-{{uniqueId}}',
+                prevEl: '#pc-button-prev-{{uniqueId}}',
+            };
+        }
+
+        const swiper = new swiperFn(id, settings);
+    };        
+
+    var WaitForSwiper = function(){
+        let swiperFn = window.Swiper || (window["require"] && require.defined("swiper") ? require("swiper") : false) ;
+        if (swiperFn) {
+            LoadSwiper(swiperFn);
+        } else {
+            setTimeout(function () { WaitForSwiper(); },500);
+        }
+    };
+
+    WaitForSwiper();
+
+})('.pc-recommender-{{uniqueId}}');

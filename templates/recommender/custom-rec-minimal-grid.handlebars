@@ -1,0 +1,299 @@
+{{!--
+  A basic grid based recommender. Use as a basis for styling recommenders for your site.
+
+  * requires_attribution is set to false in the schema as recommender products are attributed differently
+  * Uses site elements such as h2,h4 and span for elements, and inherits their styling from the site.
+  * Uses grid for layout, with a maximum width of 1 on mobile and 4 on desktop.
+  * Uses settings to control whether elements are shown (such as label, overlay images, price and sale price).
+  * If altering, ensure onmousedown="{{this.clickEvt}}" is added to all clickable elements so PureClarity can track interactions.
+  * See https://pureclarity.stoplight.io/docs/bespoke-docs/docs/8.%20Objects%20&%20Properties/Product-Recommender-Model.v1.json for properties you can use.
+  * Our templates are written in handlebars, with additional helpers provided by https://github.com/leapfrogtechnology/just-handlebars-helpers
+
+  * Please contact support@pureclarity.com for help and advice on customising your templates.
+--}}
+
+<div class="pc-recommender-{{uniqueId}} pc-{{type}} page-width swiper">        
+    <h2 class="pc-recommender-title">{{data.title}}</h2>
+
+    {{#if this.schema.settings.carousel_settings.show_on_mobile_only}}
+    <div class="pc-recommendations desktop-switch">
+        {{#each (limit data.items 4)}}
+            {{> product-card uniqueId=../this.uniqueId type=../this.type schema_settings=../this.schema.settings}}
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="pc-recommendations swiper-wrapper">
+        {{#each data.items}}
+            {{> product-card uniqueId=../this.uniqueId type=../this.type schema_settings=../this.schema.settings}}
+        {{/each}}
+    </div>
+    {{#if this.schema.settings.carousel_settings.show_navigation}}
+        <div class="swiper-button-prev" id="pc-button-prev-{{uniqueId}}"></div>
+        <div class="swiper-button-next" id="pc-button-next-{{uniqueId}}"></div>
+    {{/if}}
+</div>
+
+{{#if this.schema.settings.show_product_ratings}}
+    {{> (loadRatingPartial) }}
+{{/if}}
+
+<style>
+    {{> recommender-wrapper-and-title-css uniqueId=uniqueId schema_settings=schema.settings}}
+
+    {{> recommender-grid-layout-css uniqueId=uniqueId schema_settings=schema.settings}}
+
+    {{> product-card-css uniqueId=uniqueId schema_settings=schema.settings}}
+</style>
+
+
+<script type='text/javascript'>
+{{#if this.schema.settings.carousel_settings.enabled}}
+    {{> swiper-carousel-script uniqueId=uniqueId schema_settings=schema.settings}}
+{{/if}}
+</script>
+
+
+{{#schema}}{
+  "version": 1,
+  "name": "Minimal",
+  "type": "recommender",
+  "description": "Shows a minimally styled grid of products, categories or brands with up to 4 in a row. Extra items will start a new row. The grid will adjust the layout based on the screen size.",
+  "requires_attribution": false,
+  "settings": [
+    {
+      "id": "carousel_settings",
+      "type": "carousel",
+      "name": "Recommender Carousel Settings",
+      "description": "Carousel settings for the recommender",
+      "default": {
+        "enabled": "theme.ThemeCarouselEnabled",
+        "show_on_mobile_only": "theme.ThemeCarouselShowOnMobileOnly",
+        "loop": "theme.ThemeCarouselLoop",
+        "autoplay": "theme.ThemeCarouselAutoPlay",
+        "autoplay_delay": "theme.ThemeCarouselAutoPlayDelay",
+        "show_navigation": "theme.ThemeCarouselShowNavigation",
+        "navigation_colour": "theme.ThemeCarouselNavigationColour"
+      }
+    },
+    {
+      "id": "item_spacing",
+      "type": "number",
+      "name": "Item Spacing",
+      "description": "The gap between each item, in px",
+      "default": 10
+    },
+    {
+      "id": "show_overlay_image",
+      "type": "checkbox",
+      "name": "Show alternative product image on hover?",
+      "description": "Will display an alternative product image when the image is hovered over, if an alternative image is available",
+      "default": false
+    },
+    {
+      "id": "overlay_price_on_image",
+      "type": "checkbox",
+      "name": "Overlay prices on image?",
+      "description": "Moves prices into the lower section of the product image, with a semi-transparent gradient overlay",
+      "default": false
+    },    
+    {
+      "id": "hover_effect",
+      "type": "checkbox",
+      "name": "Hover Effect",
+      "description": "Slightly zoom on the image when hovered over",
+      "default": false
+    },
+    {
+      "id": "image_height",
+      "type": "number",
+      "name": "Height",
+      "description": "How tall the image is",
+      "default": 180
+    },
+    {
+      "id": "image_border_radius",
+      "type": "select",
+      "name": "Image corner roundness",
+      "description": "Roundness of the image corners",
+      "default": "slightlyrounded",
+      "options": [
+          {
+              "value": "square",
+              "label": "Square"
+          },
+          {
+              "value": "slightlyrounded",
+              "label": "Slightly Rounded"
+          },
+          {
+              "value": "rounded",
+              "label": "Rounded"
+          },
+          {
+              "value": "heavilyrounded",
+              "label": "Heavily Rounded"
+          },          
+          {
+              "value": "round",
+              "label": "Round"
+          }
+        ]
+    },
+    {
+      "id": "add_padding",
+      "type": "checkbox",
+      "name": "Add image padding",
+      "description": "Select image padding if you don't want your images to be cropped.",
+      "default": true
+    },
+    {
+      "id": "padding_colour",
+      "type": "colour",
+      "name": "Background Padding Colour",
+      "description": "Specify the colour of the padding area. Will only show when image padding is enabled",
+      "default": "theme.ThemeColourBackground1"
+    },
+    {
+      "id": "recommender_title_colour",
+      "type": "colour",
+      "name": "Recommender Title Colour",
+      "description": "The colour of the recommender title",
+      "default": "theme.ThemeColourText1"
+    },
+    {
+      "id": "recommender_title_font",
+      "type": "font",
+      "name": "Recommender Title Font",
+      "description": "Font settings for the recommender title",
+      "default": {
+        "font_family": "theme.ThemeHeaderFont",
+        "font_size": "theme.ThemeHeaderFontSize",
+        "font_size_unit": "theme.ThemeHeaderFontSizeUnit"
+      }
+    },
+    {
+      "id": "item_title_colour",
+      "name": "Product Title Colour",
+      "description": "The colour of the item title",
+      "type": "colour",
+      "default": "theme.ThemeColourText1"
+    },
+    {
+      "id": "item_title_font",
+      "type": "font",
+      "name": "Product Title Font",
+      "description": "Font settings for the item title",
+      "default": {
+        "font_family": "theme.ThemeBodyFont",
+        "font_size": "theme.ThemeBodyFontSize",
+        "font_size_unit": "theme.ThemeBodyFontSizeUnit",
+        "font_weight": 300
+      }
+    },
+    {
+      "id": "priceColor",
+      "name": "Product Price Colour",
+      "description": "The colour of the price.",
+      "type": "colour",
+      "default": "theme.ThemeColourText1"
+    },
+    {
+      "id": "price_font",
+      "type": "font",
+      "name": "Price Font",
+      "description": "Font settings for the item price",
+      "default": {
+        "font_family": "theme.ThemeBodyFont",
+        "font_size": "theme.ThemeBodyFontSize",
+        "font_size_unit": "theme.ThemeBodyFontSizeUnit",
+        "font_weight": 500
+      }
+    },
+    {
+      "id": "show_price",
+      "type": "checkbox",
+      "name": "Show product prices",
+      "description": "When enabled the price of the products are shown",
+      "default": true
+    },
+    {
+      "id": "show_sale_price",
+      "type": "checkbox",
+      "name": "Show product sale prices",
+      "description": "When enabled the sale price of the products are shown",
+      "default": true
+    },
+    {
+      "id": "show_product_announcement",
+      "type": "checkbox",
+      "name": "Show product announcements",
+      "description": "When enabled extra information about the product is shown at the top of the product. This can be a savings percentage or if the product is new",
+      "default": false
+    },
+    {
+      "id": "show_product_ratings",
+      "type": "checkbox",
+      "name": "Show product ratings",
+      "description": "When enabled and when Settings->Integrations->Product Ratings is set up, will show 3rd party product ratings for each product below the title.",
+      "default": true
+    },
+    {
+      "id": "show_cta_button",
+      "type": "checkbox",
+      "name": "Show call to action button",
+      "description": "When enabled will display a call to action button for each item",
+      "default": false
+    },
+    {
+      "id": "button",
+      "type": "button_options",
+      "name": "Button Options",
+      "description": "Various settings for the button",
+      "default": {
+        "border_thickness": 2,
+        "border_radius": "slightlyrounded",
+        "vertical_padding": 5,
+        "horizontal_padding": 16,
+        "full_width": true,
+        "button_alignment": "center",
+        "text_alignment": "center",
+        "link": "This will be set automatically",
+        "open_in_new_tab": false,
+        "use_outline_style": false
+      }
+    },
+    {
+      "id": "button_font",
+      "type": "font",
+      "name": "Button Font",
+      "description": "Font settings for the button",
+      "default": {
+        "font_family": "theme.ThemeBodyFont",
+        "font_size": "theme.ThemeBodyFontSize",
+        "font_size_unit": "theme.ThemeBodyFontSizeUnit"
+      }
+    },
+    {
+      "id": "button_background_colour",
+      "type": "colour",
+      "name": "Button Background Colour",
+      "description": "Specify the background colour of the button",
+      "default": "theme.ThemeColourButtonBackground1"
+    },
+    {
+      "id": "button_foreground_colour",
+      "type": "colour",
+      "name": "Button Text Colour",
+      "description": "Specify the colour of the button text",
+      "default": "theme.ThemeColourButtonText1"
+    },
+    {
+      "id": "button_border_colour",
+      "type": "colour",
+      "name": "Button Border Colour",
+      "description": "Specify the colour of the button border",
+      "default": "theme.ThemeColourButtonBackground1"
+    }
+  ],
+  "preview_image_url": "https://cdn.pureclarity.net/pureclarity/template-previews/Minimal.webp"
+}{{/schema}}
