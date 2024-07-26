@@ -1,0 +1,32 @@
+div[data-pureclarity^="bmz:{{bmzTypeId}}"], div[data-pureclarity^="zone:{{bmzTypeId}}"] {
+    height: auto !important;
+}
+
+.pc-recommender-{{uniqueId}} {
+    position: relative;
+    overflow-x: hidden;
+    max-width: 1200px;
+    margin:auto;
+}
+
+.pc-recommender-{{uniqueId}} * {
+    box-sizing: border-box;
+}
+
+.pc-recommender-{{uniqueId}} .pc-recommender-title {
+    width: 100%;
+    text-align: center;
+    color: {{schema_settings.recommender_title_colour}};        
+    display: block;
+    font-family: {{schema_settings.recommender_title_font.font_family}};
+    font-size: {{schema_settings.recommender_title_font.font_size}}{{schema_settings.recommender_title_font.font_size_unit}};
+    line-height: {{schema_settings.recommender_title_font.line_height}}{{schema_settings.recommender_title_font.line_height_unit}};
+    letter-spacing: {{schema_settings.recommender_title_font.letter_spacing}}{{schema_settings.recommender_title_font.letter_spacing_unit}};
+    font-weight: {{schema_settings.recommender_title_font.font_weight}};
+    text-transform: {{schema_settings.recommender_title_font.text_transform}};
+}
+@media (min-width: 640px) {
+    .pc-recommender-{{uniqueId}} .pc-recommender-title {
+        text-align: left;
+    }
+}

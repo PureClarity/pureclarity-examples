@@ -1,0 +1,70 @@
+<a href="{{this.Link}}" onmousedown="{{this.clickEvt}}" class="pc-product-card swiper-slide" data-product-id="{{this.Id}}">
+    <div class="pc-image-wrapper">
+        {{#if (eqw schema_settings.show_overlay_image true)}}
+            {{#if this.OverlayImage}}
+                <img class="pc-image first-img" src="{{this.Image}}" loading="lazy"/>
+                <img class="pc-image second-img" src="{{this.OverlayImage}}" loading="lazy"/>
+            {{else if (gt (count this.AllImages) 1)}}
+                <img class="pc-image first-img" src="{{this.Image}}" loading="lazy"/>
+                <img class="pc-image second-img" src="{{this.AllImages.[1]}}" loading="lazy"/>
+            {{else}}
+                <img src="{{this.Image}}" class="pc-image" loading="lazy"/>
+            {{/if}}
+        {{else}}
+            <img src="{{this.Image}}" class="pc-image" loading="lazy"/>
+        {{/if}}
+    </div>
+    <div class="pc-product-details-wrapper">
+        <h3 class="pc-product-title">
+            {{ifx (eqw type 'recommender-product') this.Title}}
+            {{ifx (eqw type 'recommender-category') this.ShortName}}
+            {{ifx (eqw type 'recommender-brand') this.DisplayName}}
+        </h3>
+        {{#if schema_settings.show_product_announcement}}
+            {{#if (gt this.SavingPercent 0)}}
+            <div class="pc-product-announcement pc-sale-announcement">
+                Sale
+            </div>
+            {{else if this.NewArrival}}
+            <div class="pc-product-announcement pc-new-arrival-announcement">
+                New
+            </div>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{#if (eqw type 'recommender-product')}}
+        {{#if schema_settings.show_price}}
+            <div class="pc-price-wrapper">
+                <div class="pc-half-height-overlay"></div>
+                {{#if schema_settings.show_sale_price}}
+                    {{#if (neqw this.DisplayWasPrice this.DisplayPrice)}}
+                        <p class="pc-was-price">{{this.CurrencySymbol}}{{this.DisplayWasPrice}}</p>
+                    {{/if}}
+                {{/if}}
+                
+                <p class="pc-price {{#if (neqw this.DisplayWasPrice this.DisplayPrice)}}pc-sale-price{{/if}}" pc-bigcommerce-product-id="{{this.Id}}">
+                    {{#if (not this.AllSamePriceRelatedSkus)}}
+                        <small>from</small>
+                    {{/if}}
+                    {{this.CurrencySymbol}}{{this.DisplayPrice}}
+                </p>
+                    
+            </div>
+        {{/if}}
+        <div class="pc-product-rating" data-rating-product-id="{{this.Id}}"></div>
+    {{/if}}
+    <div class="pc-cta-container">
+        <button class="pc-cta">
+            {{ifx (eqw type 'recommender-product') "View Product"}}
+            {{ifx (eqw type 'recommender-category') "View Category"}}
+            {{ifx (eqw type 'recommender-brand') "View Brand"}}
+        </button>
+    </div>
+</a>
+
+{{#schema}}{
+  "id": "product-card-partial",
+  "name": "Product Card",
+  "type": "partial",
+  "description": "Contains the HTML structure for a product recommendation"
+}{{/schema}}

@@ -1,0 +1,80 @@
+.pc-recommender-{{uniqueId}} .pc-recommendations {
+    {{#if (not schema_settings.carousel_settings.enabled)}}
+    display: grid;
+    grid-column-gap: 1.5rem;
+    column-gap: 1.5rem;
+    grid-row-gap: 2.5rem;
+    row-gap: 2.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    {{/if}}
+    margin-top: 1.5rem;        
+}
+
+{{#if schema_settings.carousel_settings.show_on_mobile_only}}
+    .pc-recommender-{{uniqueId}} .pc-recommendations.desktop-switch {        
+        display:none;        
+    }
+{{/if}}
+
+{{#if schema_settings.carousel_settings.enabled}}
+.pc-recommender-{{uniqueId}} .pc-recommendations.swiper-wrapper {
+    width:calc(100% - 80px);
+    height:100%;
+
+    {{#if schema_settings.carousel_settings.show_on_mobile_only}}
+        display: flex;
+    {{/if}}
+}
+{{/if}}
+
+{{#if schema_settings.carousel_settings.enabled}}
+.pc-recommender-{{uniqueId}} .swiper-button-prev, .pc-recommender-{{uniqueId}} .swiper-button-next {
+    color: {{schema_settings.carousel_settings.navigation_colour}} !important;
+    display:block;
+}
+
+    {{#if schema_settings.carousel_settings.show_on_mobile_only}}
+    @media (min-width: 640px) {
+        .pc-recommender-{{uniqueId}} .swiper-button-prev, .pc-recommender-{{uniqueId}} .swiper-button-next {
+            display:none;
+        }
+    }
+    {{/if}}
+
+{{/if}}
+
+{{#if (or (not schema_settings.carousel_settings.enabled) schema_settings.carousel_settings.show_on_mobile_only)}}
+@media (min-width: 640px) {     
+    .pc-recommender-{{uniqueId}} .pc-recommendations, .pc-recommender-{{uniqueId}} .pc-recommendations.desktop-switch {  
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        {{#if schema_settings.carousel_settings.show_on_mobile_only}}
+        display: grid;
+        grid-column-gap: 1.5rem;
+        column-gap: 1.5rem;
+        grid-row-gap: 2.5rem;
+        row-gap: 2.5rem;
+        {{/if}}
+    }
+
+    {{#if schema_settings.carousel_settings.show_on_mobile_only}}
+    .pc-recommender-{{uniqueId}} .pc-recommendations.swiper-wrapper{
+        display: none;
+    }
+    {{/if}}
+}
+
+@media (min-width: 1024px) {
+    .pc-recommender-{{uniqueId}} .pc-recommendations, .pc-recommender-{{uniqueId}} .pc-recommendations.desktop-switch {  
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .pc-recommender-{{uniqueId}} .pc-recommendations, .pc-recommender-{{uniqueId}} .pc-recommendations.desktop-switch {  
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-column-gap: 2rem;
+        column-gap: 2rem;
+    }
+}
+{{/if}}
